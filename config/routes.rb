@@ -27,8 +27,10 @@ Rails.application.routes.draw do
   post 'topics/edit/:id', to: 'topics#update', as: 'update_topic'
   delete 'topics/destroy/:id', to: 'topics#destroy', as: 'destroy_topic'
    
-  # table_tennisController
+  # TabletennisController
   get 'tabletennis/index', to: 'tabletennis#index', as: 'tabletennis_index'
 
+  # TimeController
+  get 'time/index', to: 'time#index', as: 'time_index'
 
 end

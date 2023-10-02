@@ -1,6 +1,10 @@
+<header class="h1_tabletennis">
+    卓球練習管理
+</header>
+
 <div class="container">
     <div class="col-md-8 mx-auto post-form-container">
-        <h2 class="h2">投稿編集</h2>
+        <h2 class="h2">練習内容編集</h2>
         <%= form_with(url: update_post_path, model: @post, local: true, method: :post, html: { class: 'post-form' }) do |f| %>
         
             <% if @post.errors.any? %>
@@ -11,12 +15,12 @@
             <% end %>
             
             <div class="form-group">
-                <%= f.label "タイトル", class: 'form-label' %>
+                <%= f.label "練習タイトル", class: 'form-label' %>
                 <%= f.text_field :title, value: @post.title, class: 'form-control' %>
             </div>
             
             <div class="form-group">
-                <%= f.label "本文", class: 'form-label' %>
+                <%= f.label "練習内容", class: 'form-label' %>
                 <%= f.text_area :body, value: @post.body, class: 'form-control' %>
             </div>
             

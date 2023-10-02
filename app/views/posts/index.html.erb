@@ -3,37 +3,35 @@
     卓球練習管理
 </header>
 
-<div class="mx-auto border border-danger">
-    <div style="title_1">累積</div>
-    <div>時間</div>
-</div>
+<h1 class="title_1">~現在の練習メニュー~</h1>
 
-<div class="mx-auto border border-danger">
-    <div style="title center">累積</div>
-    <div>時間</div>
-</div>
+<body>
+    <div class="titile-button">
+        <div class="Practice-Title">練習タイトルのみ</div>
+        <div class="delete-button">削除</div> 
+    </div>
+</body>
 
-<div class="mx-auto border border-danger">
-    <div style="title center">累積</div>
-    <div>時間</div>
-</div>
+<body>
+    <div class="titile-button">
+        <div class="Practice-Title">練習タイトルのみ</div>
+        <div class="delete-button">削除</div> 
+    </div>
+</body>
 
+<body>
+    <div class="titile-button">
+        <div class="Practice-Title">練習タイトルのみ</div>
+        <div class="delete-button">削除</div> 
+    </div>
+</body>
 
+<h1 class="title_1">練習一覧 / 練習新規追加</h1>
 
-
-
-
-
-<div class="search-container">
-    <%= form_with url: index_post_path, class: "form", method: :get,local: true do |form| %>
-        <input class="input" type="text" name="title" placeholder="タイトルで検索"　value="<%= params[:title] %>">
-        <%= form.submit "検索", class: "button" %>
-    <% end %>
-</div>
 
 <div class="post-list">
     <% @posts.each do |post| %>
-        <a class="post" href="<%= new_comment_path(post) %>">
+        <a class="post" href="<%= edit_post_path(post) %>">
             <div class="header">
                 <h2 class="title"><%= post.title %></h2>    
                 <p class="timestamp"><%= post.created_at.strftime("%B %d, %Y") %></p>
@@ -47,3 +45,10 @@
         </a>
     <% end %>    
 </div>
+
+<div class="text-center">
+<%= link_to "ホーム画面に戻る", tabletennis_index_path, class: "btn btn-link" %>
+</div>
+
+
+

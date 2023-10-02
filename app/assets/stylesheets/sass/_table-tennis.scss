@@ -1,20 +1,120 @@
+/* 主題_卓球練習管理 */
 .h1_tabletennis {
-    font-size: 20px;
+    font-size: 30px;
     margin-bottom: 20px;
     text-align: center;
-    background-color: yellow;
-    color: rgb(248, 102, 5)
-}
-
-
-.mx-auto border border-danger {
-    text-align: center;
-    border-radius: 8px;
-    max-width: 500px;
-    padding: 10px;
+    background-color: rgb(218, 241, 48);
+    color: rgb(248, 5, 5)
 }
 
 .title_1 {
     text-align: center;
-
+    margin-bottom: 5px;
 }
+
+.title_underline {
+    text-decoration: underline
+}
+
+
+/* 練習時間累積 */
+.text-center {
+    text-align: center;
+    font-size: 24px;
+    color: white;
+}
+
+.total-time_1 {
+    background-color: #ff0101;
+    padding: 10px 20px;
+    border: 2px solid #030303;
+    border-radius: 10px;
+    margin: 10px auto; /* 水平方向に中央揃えに変更 */
+    width: 500px;
+}
+
+.total-time_2 {
+    background-color: #f14b4b;
+    padding: 10px 20px;
+    border: 2px solid #030303;
+    border-radius: 10px;
+    margin: 10px auto; /* 水平方向に中央揃えに変更 */
+    width: 500px;
+}
+
+.total-time_3 {
+    background-color: #f67373;
+    padding: 10px 20px;
+    border: 2px solid #030303;
+    border-radius: 10px;
+    margin: 10px auto; /* 水平方向に中央揃えに変更 */
+    width: 500px;
+}
+
+/* 練習時間入力 */
+.time-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+.practice_time {
+    margin-right: 10px; 
+    text-decoration: underline; 
+}
+
+.time-button {
+    padding: 10px 20px;
+}
+
+.time-button:first-child {
+    margin-left: 10px;
+}
+
+
+/* 現在の練習メニュー */
+.titile-button {
+    background-color: #3498db;
+    padding: 5px 0; 
+    border-radius: 10px;
+    color: rgb(8, 8, 8);
+    font-size: 15pt;
+    display: flex;
+    align-items: center; 
+    text-align: center;
+    margin-bottom: 20px; 
+}
+
+
+.delete-button {
+    background-color: #e74c3c;
+    padding: 5px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 10pt;
+    align-self: right;
+    padding-left: 20px;
+    padding-right: 20px
+}
+
+.Practice-Title {
+    flex-grow: 1; /* テキストを残りのスペースを埋めるように伸ばす */
+    text-align: center; /* テキストを水平方向に中央に配置 */
+}
+
+flex-container {
+    display: flex;
+    align-items: right;
+    margin-bottom: 20px
+}
+
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px; 
+  }
+  
