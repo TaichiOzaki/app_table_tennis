@@ -32,12 +32,8 @@ Rails.application.routes.draw do
   
   # TimeController
   get 'time/index', to: 'time#index', as: 'time_index'
-  resources :tabletennistimes, only: [:new, :create]
-  resources :tabletennistimes do
-    collection do
-      get 'show_all_times'
-    end
-  end
+  post 'time/index', to: 'time#create', as: 'time_create'
+  
 
 
 
