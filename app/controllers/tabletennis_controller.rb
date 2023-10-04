@@ -9,5 +9,6 @@ class TabletennisController < ApplicationController
         redirect_to time_index_path
     end
 
+    
 
 end

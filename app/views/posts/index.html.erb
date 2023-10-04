@@ -3,7 +3,21 @@
     卓球練習管理
 </header>
 
-<h1 class="title_1">~現在の練習メニュー~</h1>
+<h1 class="center_position">~現在の練習メニュー~</h1>
+
+<body>
+    <div class="titile-button">
+        <div class="Practice-Title">練習タイトルのみ</div>
+        <div class="delete-button">削除</div> 
+    </div>
+</body>
+
+<body>
+    <div class="titile-button">
+        <div class="Practice-Title">練習タイトルのみ</div>
+        <div class="delete-button">削除</div> 
+    </div>
+</body>
 
 <body>
     <div class="titile-button">
@@ -28,6 +42,10 @@
 
 <h1 class="title_1">練習一覧 / 練習新規追加</h1>
 
+<div class="center_position">
+  <button type="button" class="btn btn-success">現在の練習メニューに追加</button>
+</div>
+
 
 <div class="post-list">
     <% @posts.each do |post| %>
@@ -35,12 +53,6 @@
             <div class="header">
                 <h2 class="title"><%= post.title %></h2>    
                 <p class="timestamp"><%= post.created_at.strftime("%B %d, %Y") %></p>
-            </div>
-            <div class="body">
-                <p class="content"><%= post.body %></p>
-            </div>
-            <div class="image">
-                <%=image_tag(post.image) if post.image.attached? %>
             </div>
         </a>
     <% end %>    

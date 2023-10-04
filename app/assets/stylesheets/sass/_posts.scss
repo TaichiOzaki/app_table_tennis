@@ -109,8 +109,8 @@
   .post {
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
     width: 100%;
     max-width: 600px;
     color: #000;
@@ -152,6 +152,14 @@
       }
     }
   }
+}
+
+.center_position {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 

@@ -29,8 +29,16 @@ Rails.application.routes.draw do
    
   # TabletennisController
   get 'tabletennis/index', to: 'tabletennis#index', as: 'tabletennis_index'
-
+  
   # TimeController
   get 'time/index', to: 'time#index', as: 'time_index'
+  resources :tabletennistimes, only: [:new, :create]
+  resources :tabletennistimes do
+    collection do
+      get 'show_all_times'
+    end
+  end
+
+
 
 end
