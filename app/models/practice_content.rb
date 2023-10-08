@@ -1,0 +1,2 @@
+class PracticeContent < ApplicationRecord
+end

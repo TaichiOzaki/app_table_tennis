@@ -29,7 +29,8 @@ Rails.application.routes.draw do
    
   # TabletennisController
   get 'tabletennis/index', to: 'tabletennis#index', as: 'tabletennis_index'
-  
+  post 'tabletennis/index', to: 'tabletennis#create', as: 'tabletennis_create'
+
   # TimeController
   get 'time/index', to: 'time#index', as: 'time_index'
   post 'time/index', to: 'time#create', as: 'time_create'
