@@ -30,4 +30,15 @@ class TabletennisController < ApplicationController
     end
 
 
+    def show_total_time_all
+      @total_time_all = Tabletennistime.total_time_all
+    end
+    
+    def show_total_time_month
+      @total_time_month = Tabletennistime.total_time_month
+    end
+    
+    def show_total_time_week
+      @total_time_week = Tabletennistime.total_time_week
+    end
 end

@@ -19,6 +19,13 @@
     <div class="text-center">時間</div>
 </div>
 
+<p>全期間の合計時間 <%= @total_time_all %> </p>
+
+<p>直近一か月の合計時間 <%= @total_time_month %> </p>
+
+<p>直近1週間の合計時間 <%= @total_time_week %> </p>
+
+
 <body>
     <div class="time-container">
         <h1 class="practice_time">練習時間入力</h1>
@@ -39,7 +46,6 @@
 
             <%= f.label :minutes, "分" %>
             <%= f.select :minutes, [0, 15, 30, 45], { include_blank: '分を入力（15分毎）' }, { required: true, class: 'form-control' } %>
-
         </div>
 
         <div class="text-center">

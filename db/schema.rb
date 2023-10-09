@@ -55,7 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_215020) do
   end
 
   create_table "practice_contents", charset: "utf8mb4", collation: "utf8mb4_0900_bin", force: :cascade do |t|
-    t.integer "practice_contentspost_id"
+    t.integer "posts_id"
     t.integer "practice_history_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

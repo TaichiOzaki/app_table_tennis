@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'posts/edit/:id', to: 'posts#edit', as: 'edit_post'
   post 'posts/edit/:id', to: 'posts#update', as: 'update_post'
   delete 'posts/destroy/:id', to: 'posts#destroy', as: 'destroy_post'
+  post '/', to: 'posts#add', as: 'add'
+
   
   # CommentsController
   get 'posts/show/:post_id/comments/new', to: 'comments#new', as: 'new_comment'
@@ -30,6 +32,11 @@ Rails.application.routes.draw do
   # TabletennisController
   get 'tabletennis/index', to: 'tabletennis#index', as: 'tabletennis_index'
   post 'tabletennis/index', to: 'tabletennis#create', as: 'tabletennis_create'
+  get 'tabletennis/index', to: 'tabletennis#show_total_time_all', as: 'tabletennis_show_total_time_all'
+  get 'tabletennis/index', to: 'tabletennis#show_total_time_month', as: 'tabletennis_show_total_time_month'
+  get 'tabletennis/index', to: 'tabletennis#show_total_time_week', as: 'tabletennis_show_total_time_week'
+
+  
 
   # TimeController
   get 'time/index', to: 'time#index', as: 'time_index'
