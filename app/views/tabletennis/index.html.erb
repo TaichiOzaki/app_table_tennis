@@ -32,23 +32,19 @@
     <%= form_with model: Tabletennistime, url: tabletennis_index_path, method: :post do |f| %>
         <div class="form-group ">
             <%= f.label :date, "日付" %>
-            <%= f.date_field :date, class: 'form-control' %>
-        </div>
-    
-        <div class="form-group ">
+            <%= f.date_field :date, class: 'form-control', required: true %>
+
             <%= f.label :hour, "時間" %>
-            <%= f.select :hour, (0..8).to_a, { include_blank: '時間を入力（最大8時間）' }, class: 'form-control' %>
-        </div>
-    
-        <div class="form-group ">
+            <%= f.select :hour, (0..8), { include_blank: '時間を入力（最大8時間）' }, { required: true, class: 'form-control' } %>
+
             <%= f.label :minutes, "分" %>
-            <%= f.select :minutes, [0, 15, 30, 45].to_a, { include_blank: '分を入力（15分毎）' }, class: 'form-control' %>
+            <%= f.select :minutes, [0, 15, 30, 45], { include_blank: '分を入力（15分毎）' }, { required: true, class: 'form-control' } %>
+
         </div>
 
         <div class="text-center">
             <%= f.submit "練習時間を保存", class: 'btn btn-primary' %>
         </div>
-        
     <% end %>
 </div>
 
