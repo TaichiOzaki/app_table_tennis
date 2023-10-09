@@ -12,6 +12,27 @@
     </div>
 </body>
 
+<div class="Practice-Title">選択した練習タイトル:</div>
+<div id="selected-post-titles"></div>
+
+<script>
+  document.getElementById('show-selected').addEventListener('click', function() {
+    var checkboxes = document.querySelectorAll('input[name="selected_posts[]"]:checked');
+    var selectedPostTitles = Array.from(checkboxes).map(function(checkbox) {
+      return checkbox.parentNode.nextElementSibling.querySelector('.title').textContent;
+    });
+
+    var selectedPostTitlesContainer = document.getElementById('selected-post-titles');
+    selectedPostTitlesContainer.innerHTML = '';
+
+    selectedPostTitles.forEach(function(title) {
+      var p = document.createElement('p');
+      p.textContent = title;
+      selectedPostTitlesContainer.appendChild(p);
+    });
+  });
+</script>
+
 <body>
     <div class="titile-button">
         <div class="Practice-Title">練習タイトルのみ</div>
@@ -43,24 +64,68 @@
 <h1 class="title_1">練習一覧 / 練習新規追加</h1>
 
 <div class="center_position">
-  <button type="button" class="btn btn-success">現在の練習メニューに追加</button>
+  <button type="button" class="btn btn-success" id="show-selected">選択したデータを表示</button>
 </div>
+
 
 
 <div class="post-list">
-    <% @posts.each do |post| %>
-        <a class="post" href="<%= edit_post_path(post) %>">
-            <div class="header">
-                <h2 class="title"><%= post.title %></h2>    
-                <p class="timestamp"><%= post.created_at.strftime("%B %d, %Y") %></p>
-            </div>
-        </a>
-    <% end %>    
+  <% @posts.each do |post| %>
+    <div class="post">
+      <input type="checkbox" name="selected_posts[]" value="<%= post.id %>">
+      <a class="post" href="<%= edit_post_path(post) %>">
+        <div class="header">
+          <h2 class="title"><%= post.title %></h2>
+          <p class="timestamp"><%= post.created_at.strftime("%B %d, %Y") %></p>
+        </div>
+      </a>
+    </div>
+  <% end %>
 </div>
+
+
 
 <div class="text-center">
 <%= link_to "ホーム画面に戻る", tabletennis_index_path, class: "btn btn-link" %>
 </div>
 
 
+<div class="center_position">
+  <button type="button" class="btn btn-success" id="show-selected">選択したデータを表示</button>
+</div>
+
+<div class="Practice-Title">選択した練習タイトル:</div>
+<div id="selected-post-titles"></div>
+
+<script>
+  document.getElementById('show-selected').addEventListener('click', function() {
+    var checkboxes = document.querySelectorAll('input[name="selected_posts[]"]:checked');
+    var selectedPostTitles = Array.from(checkboxes).map(function(checkbox) {
+      return checkbox.parentNode.nextElementSibling.querySelector('.title').textContent;
+    });
+
+    var selectedPostTitlesContainer = document.getElementById('selected-post-titles');
+    selectedPostTitlesContainer.innerHTML = '';
+
+    selectedPostTitles.forEach(function(title) {
+      var p = document.createElement('p');
+      p.textContent = title;
+      selectedPostTitlesContainer.appendChild(p);
+    });
+  });
+</script>
+
+<div class="post-list">
+  <% @posts.each do |post| %>
+    <div class="post">
+      <input type="checkbox" name="selected_posts[]" value="<%= post.id %>">
+      <a class="post" href="<%= edit_post_path(post) %>">
+        <div class="header">
+          <h2 class="title"><%= post.title %></h2>
+          <p class="timestamp"><%= post.created_at.strftime("%B %d, %Y") %></p>
+        </div>
+      </a>
+    </div>
+  <% end %>
+</div>
 

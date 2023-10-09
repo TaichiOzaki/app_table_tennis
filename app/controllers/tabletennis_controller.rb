@@ -19,9 +19,10 @@ class TabletennisController < ApplicationController
         if @tabletennistime.save
           redirect_to time_index_path, notice: "記録が保存されました"
         else
+          flash[:alert] = "保存できませんでした"
           render :new
         end
-    end
+      end
     
     private
     def tabletennistime_params
