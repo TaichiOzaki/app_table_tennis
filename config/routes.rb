@@ -32,9 +32,7 @@ Rails.application.routes.draw do
   # TabletennisController
   get 'tabletennis/index', to: 'tabletennis#index', as: 'tabletennis_index'
   post 'tabletennis/index', to: 'tabletennis#create', as: 'tabletennis_create'
-  get 'tabletennis/index', to: 'tabletennis#show_total_time_all', as: 'tabletennis_show_total_time_all'
-  get 'tabletennis/index', to: 'tabletennis#show_total_time_month', as: 'tabletennis_show_total_time_month'
-  get 'tabletennis/index', to: 'tabletennis#show_total_time_week', as: 'tabletennis_show_total_time_week'
+  
 
   
 

@@ -12,6 +12,9 @@ class TabletennisController < ApplicationController
 
     def index
         @tabletennistimes = Tabletennistime.all
+        @total_time_all = Tabletennistime.total_time_all
+        @total_time_month = Tabletennistime.total_time_month
+        @total_time_week = Tabletennistime.total_time_week
     end
 
     def create
@@ -27,18 +30,5 @@ class TabletennisController < ApplicationController
     private
     def tabletennistime_params
         params.require(:tabletennistime).permit(:date, :hour, :minutes)
-    end
-
-
-    def show_total_time_all
-      @total_time_all = Tabletennistime.total_time_all
-    end
-    
-    def show_total_time_month
-      @total_time_month = Tabletennistime.total_time_month
-    end
-    
-    def show_total_time_week
-      @total_time_week = Tabletennistime.total_time_week
     end
 end

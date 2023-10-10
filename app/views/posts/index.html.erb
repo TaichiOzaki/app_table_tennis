@@ -66,39 +66,3 @@
 
 
 
-
-<div class="post-list">
-  <% @posts.each do |post| %>
-    <% if post.add == 1 %>
-      <div class="post">
-        <a class="post" href="<%= edit_post_path(post) %>">
-          <div class="header">
-            <h2 class="title"><%= post.title %></h2>
-            <p class="timestamp"><%= post.created_at.strftime("%B %d, %Y") %></p>
-          </div>
-        </a>
-      </div>
-    <% end %>
-  <% end %>
-</div>
-
-
-<%= form_tag(add_path, method: :post) do %>
-  <div class="center_position">
-    <button type="submit" class="btn btn-success" id="show-selected">現在の練習メニューに追加</button>
-  </div>
-
-  <div class="post-list">
-    <% @posts.each do |post| %>
-      <div class="post">
-        <input type="checkbox" name="selected_posts[]" value="<%= post.id %>">
-        <a class="post" href="<%= edit_post_path(post) %>">
-          <div class="header">
-            <h2 class="title"><%= post.title %></h2>
-            <p class="timestamp"><%= post.created_at.strftime("%B %d, %Y") %></p>
-          </div>
-        </a>
-      </div>
-    <% end %>
-  </div>
-<% end %>

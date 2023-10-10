@@ -7,24 +7,17 @@
 </h1>
 
 <div class="total-time_1">
-    <div class="text-center">累積</div>
-    <div class="text-center">時間</div>
+    <div class="text-center">全期間の合計時間</div>
+    <div class="text-center"><%= @total_time_all %></div>
 </div>
 <div class="total-time_2">
-    <div class="text-center">今月</div>
-    <div class="text-center">時間</div>
+    <div class="text-center">直近１ヶ月の合計時間</div>
+    <div class="text-center"><%= @total_time_month %></div>
 </div>
 <div class="total-time_3">
-    <div class="text-center">今週</div>
-    <div class="text-center">時間</div>
+    <div class="text-center">直近1週間の合計時間</div>
+    <div class="text-center"><%= @total_time_week %></div>
 </div>
-
-<p>全期間の合計時間 <%= @total_time_all %> </p>
-
-<p>直近一か月の合計時間 <%= @total_time_month %> </p>
-
-<p>直近1週間の合計時間 <%= @total_time_week %> </p>
-
 
 <body>
     <div class="time-container">
