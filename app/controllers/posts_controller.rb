@@ -61,33 +61,25 @@ class PostsController < ApplicationController
     @posts = Post.where(id: params[:selected_posts])
     @posts.each do |post|
       post.update(add: 1)
-
+  end
     @selected_posts = Post.where(id: params[:selected_posts])
-
- end
-
+    redirect_to index_post_path 
+  end
   
+  def home
+    redirect_to tabletennis_index_path
+  end
+
 end
      
- 
- private
+
+private
   def post_params
     params.require(:post).permit(:title, :body, :image)
   end
   
-end
-
-
-
-def home
-  redirect_to tabletennis_index_path
-end
 
 
 
 
 
-
-
-
- 
