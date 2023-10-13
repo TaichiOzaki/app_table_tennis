@@ -15,13 +15,16 @@ Rails.application.routes.draw do
   post 'posts/edit/:id', to: 'posts#update', as: 'update_post'
   delete 'posts/destroy/:id', to: 'posts#destroy', as: 'destroy_post'
   post '/', to: 'posts#add', as: 'add'
+  patch '/', to: 'posts#update_add_status', as: 'update_add_status'
+  patch '/', to: 'posts#display_selected', as: 'display_selected'  
+  patch 'posts/index', to: 'posts#index', as: 'posts_index'
+  
 
   
   # CommentsController
   get 'posts/show/:post_id/comments/new', to: 'comments#new', as: 'new_comment'
   post 'posts/show/:post_id/comments/new', to: 'comments#create', as: 'create_comment'
   
-
     # TopicsController
   get 'topics/new', to: 'topics#new', as: 'new_topic'
   post 'topics/new', to: 'topics#create', as: 'create_topic'
@@ -32,15 +35,25 @@ Rails.application.routes.draw do
   # TabletennisController
   get 'tabletennis/index', to: 'tabletennis#index', as: 'tabletennis_index'
   post 'tabletennis/index', to: 'tabletennis#create', as: 'tabletennis_create'
-  
-
-  
 
   # TimeController
   get 'time/index', to: 'time#index', as: 'time_index'
   post 'time/index', to: 'time#create', as: 'time_create'
   
 
-
+  resources :posts do
+    collection do
+      patch 'update_add_status'
+    end
+  end
+  
+  resources :posts do
+    collection do
+      patch 'display_selected'
+    end
+  end
+  
+  
+  
 
 end

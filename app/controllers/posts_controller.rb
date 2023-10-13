@@ -65,15 +65,23 @@ class PostsController < ApplicationController
   
 end
 
-def add
-  selected_post_ids = params[:selected_posts]
-  Post.where(id: selected_post_ids).update_all(add: 1)
-  redirect_to tabletennis_index_path 
-end
 
 
 def home
   redirect_to tabletennis_index_path
+end
+
+def update_add_status
+  @posts = Post.where(id: params[:selected_posts])
+  @posts.each do |post|
+    post.update(add: 1)
+  end
+
+  redirect_to index_post_path
+end
+
+def display_selected
+  @selected_posts = Post.where(id: params[:selected_posts])
 end
 
 
