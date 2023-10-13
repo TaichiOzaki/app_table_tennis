@@ -56,6 +56,18 @@ class PostsController < ApplicationController
    end
    
  end
+
+ def add_and_display
+    @posts = Post.where(id: params[:selected_posts])
+    @posts.each do |post|
+      post.update(add: 1)
+
+    @selected_posts = Post.where(id: params[:selected_posts])
+
+ end
+
+  
+end
      
  
  private
@@ -71,16 +83,7 @@ def home
   redirect_to tabletennis_index_path
 end
 
-def add_and_display
-  @posts = Post.where(id: params[:selected_posts])
-  @posts.each do |post|
-    post.update(add: 1)
-  end
 
-  @selected_posts = Post.where(id: params[:selected_posts])
-
-  render :display_selected
-end
 
 
 

@@ -33,9 +33,10 @@ Rails.application.routes.draw do
   # TimeController
   get 'time/index', to: 'time#index', as: 'time_index'
   post 'time/index', to: 'time#create', as: 'time_create'
+  delete 'time/index', to: 'time#destroy', as: 'time_destroy'
   
 
-  # config/routes.rb
+
 
   resources :posts do
     collection do

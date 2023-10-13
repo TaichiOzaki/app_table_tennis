@@ -14,6 +14,8 @@
       <div class="time-value"><%= time.date %></div>
       <div class="time-value"><%= time.hour %>時間</div>
       <div class="time-value"><%= time.minutes %>分</div>
+      <%= link_to '削除', time_destroy_path(@tabletennistime), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
+
     </div>
   <% end %>
 </div>
