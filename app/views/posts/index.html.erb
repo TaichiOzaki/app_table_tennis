@@ -63,10 +63,9 @@
   <%= link_to "ホーム画面に戻る", tabletennis_index_path, class: "btn btn-link" %>
 </div>
 
-<div class="post-list">
-  <form action="<%= update_add_status_post_path %>" method="post">
-    <%= csrf_meta_tags %>
-    <input type="hidden" name="_method" value="patch">
+<form action="<%= add_and_display_posts_path %>" method="post">
+  <%= csrf_meta_tags %>
+  <input type="hidden" name="_method" value="patch">
     <% @posts.each do |post| %>
       <div class="post">
         <input type="checkbox" name="selected_posts[]" value="<%= post.id %>">
@@ -78,7 +77,7 @@
         </a>
       </div>
     <% end %>
-    <button type="submit">更新</button>
+    <button type="submit">現在の練習メニューに追加</button>
   </form>
 </div>
 
@@ -92,9 +91,8 @@
     </div>
   <% end %>
 <% else %>
-  <p>選択されたポストはありません。</p>
+  <p>選択された練習はありません</p>
 <% end %>
-
 
 
 

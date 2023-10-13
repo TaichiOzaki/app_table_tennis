@@ -71,18 +71,17 @@ def home
   redirect_to tabletennis_index_path
 end
 
-def update_add_status
+def add_and_display
   @posts = Post.where(id: params[:selected_posts])
   @posts.each do |post|
     post.update(add: 1)
   end
 
-  redirect_to index_post_path
+  @selected_posts = Post.where(id: params[:selected_posts])
+
+  render :display_selected
 end
 
-def display_selected
-  @selected_posts = Post.where(id: params[:selected_posts])
-end
 
 
 

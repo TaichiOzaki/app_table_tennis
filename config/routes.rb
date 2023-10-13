@@ -14,12 +14,6 @@ Rails.application.routes.draw do
   get 'posts/edit/:id', to: 'posts#edit', as: 'edit_post'
   post 'posts/edit/:id', to: 'posts#update', as: 'update_post'
   delete 'posts/destroy/:id', to: 'posts#destroy', as: 'destroy_post'
-  post '/', to: 'posts#add', as: 'add'
-  patch '/', to: 'posts#update_add_status', as: 'update_add_status'
-  patch '/', to: 'posts#display_selected', as: 'display_selected'  
-  patch 'posts/index', to: 'posts#index', as: 'posts_index'
-  
-
   
   # CommentsController
   get 'posts/show/:post_id/comments/new', to: 'comments#new', as: 'new_comment'
@@ -41,19 +35,12 @@ Rails.application.routes.draw do
   post 'time/index', to: 'time#create', as: 'time_create'
   
 
+  # config/routes.rb
+
   resources :posts do
     collection do
-      patch 'update_add_status'
+      patch 'add_and_display', to: 'posts#add_and_display', as: 'add_and_display'
     end
   end
-  
-  resources :posts do
-    collection do
-      patch 'display_selected'
-    end
-  end
-  
-  
-  
 
 end
