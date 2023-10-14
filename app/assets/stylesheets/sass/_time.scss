@@ -13,9 +13,14 @@
 .time-label {
   margin-right: 5px; /* 日付、時間、分の間に少しスペースを追加 */
   font-weight: bold; /* 日付、時間、分のラベルを太字にする */
-}
+}   
 
 .time-value {
   margin-right: 10px;
   font-size: 24px;
+}
+
+.btn {
+  width: 100px; /* ボタンの固定幅を設定 */
+  margin-buttom: 10px; /* ボタン間の間隔を設定 */
 }

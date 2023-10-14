@@ -41,51 +41,33 @@
 </body>
 
 <h1 class="center_position">練習一覧</h1>
-<div class="center_position">
-  <button type="button" class="btn btn-success">現在の練習メニューに追加</button>
-</div>
 
-<div class="post-list">
-  <% @posts.each do |post| %>
-    <div class="post">
-    <input type="checkbox" name="selected_posts[]" value="<%= post.id %>">
-      <a class="post" href="<%= edit_post_path(post) %>">
-        <div class="header">
-          <h2 class="title"><%= post.title %></h2>
-          <p class="timestamp"><%= post.created_at.strftime("%B %d, %Y") %></p>
-        </div>
-      </a>
+<div class="practice-list">
+  <form action="<%= add_and_display_posts_path %>" method="post">
+    <%= csrf_meta_tags %>
+    <input type="hidden" name="_method" value="patch">
+    <div class="center_position">
+      <button type="submit" class="btn btn-success">現在の練習メニューに追加</button>
     </div>
-  <% end %>
-</div>
-
-<div class="text-center">
-  <%= link_to "ホーム画面に戻る", tabletennis_index_path, class: "btn btn-link" %>
-</div>
-
-<form action="<%= add_and_display_posts_path %>" method="post">
-  <%= csrf_meta_tags %>
-  <input type="hidden" name="_method" value="patch">
     <% @posts.each do |post| %>
-      <div class="post">
-        <input type="checkbox" name="selected_posts[]" value="<%= post.id %>">
-        <a class="post" href="<%= edit_post_path(post) %>">
-          <div class="header">
-            <h2 class="title"><%= post.title %></h2>
-            <p class="timestamp"><%= post.created_at.strftime("%B %d, %Y") %></p>
-          </div>
-        </a>
+      <div class="practice">
+        <div class="practice-content">
+          <input type="checkbox" name="selected_posts[]" value="<%= post.id %>">
+          <a class="post" href="<%= edit_post_path(post) %>">
+            <div class="header">
+              <h2 class="title"><%= post.title %></h2>
+            </div>
+          </a>
+        </div>
       </div>
     <% end %>
-    <button type="submit">現在の練習メニューに追加</button>
   </form>
 </div>
 
 
-
 <% if @selected_posts.present? %>
   <% @selected_posts.each do |post| %>
-    <div class="post">
+    <div class="practice">
       <h2><%= post.title %></h2>
       <p><%= post.body %></p>
     </div>
@@ -93,6 +75,12 @@
 <% else %>
   <p>選択された練習はありません</p>
 <% end %>
+
+<div class="text-center">
+  <%= link_to "ホーム画面に戻る", tabletennis_index_path, class: "btn btn-link" %>
+</div>
+
+
 
 
 

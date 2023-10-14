@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   else
     @posts = Post.all
   end
+  @selected_posts = Post.where(add: 1)
   render :index  # renders app/views/posts/index.html.erb
  end
  
@@ -58,27 +59,30 @@ class PostsController < ApplicationController
  end
 
  def add_and_display
-    @posts = Post.where(id: params[:selected_posts])
-    @posts.each do |post|
-      post.update(add: 1)
-  end
-    @selected_posts = Post.where(id: params[:selected_posts])
-    redirect_to index_post_path 
-  end
+  @posts = Post.where(id: params[:selected_posts])
+  @posts.each do |post|
+    post.update(add: 1)
+ end
+  
+
+  
+ 
+end
+
   
   def home
     redirect_to tabletennis_index_path
   end
 
-end
+
      
 
-private
+ private
   def post_params
     params.require(:post).permit(:title, :body, :image)
   end
   
-
+end
 
 
 
