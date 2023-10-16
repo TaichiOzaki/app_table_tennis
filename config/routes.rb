@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   get 'posts/edit/:id', to: 'posts#edit', as: 'edit_post'
   post 'posts/edit/:id', to: 'posts#update', as: 'update_post'
   delete 'posts/destroy/:id', to: 'posts#destroy', as: 'destroy_post'
+  patch '/', to: 'posts#delete', as: 'delete_post'
+
+
+
   
   # CommentsController
   get 'posts/show/:post_id/comments/new', to: 'comments#new', as: 'new_comment'
@@ -40,7 +44,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     collection do
-      patch 'add_and_display', to: 'posts#add_and_display', as: 'add_and_display'
+      patch 'add', to: 'posts#add', as: 'add'
     end
   end
 

@@ -58,14 +58,18 @@ class PostsController < ApplicationController
    
  end
 
- def add_and_display
+ def add
   @posts = Post.where(id: params[:selected_posts])
   @posts.each do |post|
     post.update(add: 1)
  end
-  
 
-  
+ def delete
+  @posts = Post.where(id: params[:selected_posts])
+  @posts.each do |post|
+    post.update(add: 0)
+ end
+end
  
 end
 

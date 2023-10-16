@@ -5,76 +5,42 @@
 
 <h1 class="center_position">~現在の練習メニュー~</h1>
 
-<body>
-    <div class="titile-button">
-        <div class="Practice-Title">練習タイトルのみ</div>
-        <div class="delete-button">削除</div> 
-    </div>
-</body>
+<div class="center_position">
+  <% if @selected_posts.present? %>
+    <% @selected_posts.each do |post| %>
+      <div class="practice">
+        <div class="post-title-container" style="display: flex; justify-content: space-between;">
+          <h2><%= post.title %></h2>
+          <%= link_to '削除', delete_post_path(post), method: :post, class: 'delete-button' %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>選択された練習はありません</p>
+  <% end %>
+</div>
 
-<body>
-    <div class="titile-button">
-        <div class="Practice-Title">練習タイトルのみ</div>
-        <div class="delete-button">削除</div> 
-    </div>
-</body>
 
-<body>
-    <div class="titile-button">
-        <div class="Practice-Title">練習タイトルのみ</div>
-        <div class="delete-button">削除</div> 
-    </div>
-</body>
-
-<body>
-    <div class="titile-button">
-        <div class="Practice-Title">練習タイトルのみ</div>
-        <div class="delete-button">削除</div> 
-    </div>
-</body>
-
-<body>
-    <div class="titile-button">
-        <div class="Practice-Title">練習タイトルのみ</div>
-        <div class="delete-button">削除</div> 
-    </div>
-</body>
-
-<h1 class="center_position">練習一覧</h1>
+<h1 class="center_position_practice_index">練習一覧</h1>
 
 <div class="practice-list">
-  <form action="<%= add_and_display_posts_path %>" method="post">
+  <form action="<%= add_posts_path %>" method="post">
     <%= csrf_meta_tags %>
     <input type="hidden" name="_method" value="patch">
     <div class="center_position">
       <button type="submit" class="btn btn-success">現在の練習メニューに追加</button>
     </div>
     <% @posts.each do |post| %>
-      <div class="practice">
         <div class="practice-content">
           <input type="checkbox" name="selected_posts[]" value="<%= post.id %>">
           <a class="post" href="<%= edit_post_path(post) %>">
-            <div class="header">
               <h2 class="title"><%= post.title %></h2>
-            </div>
           </a>
         </div>
-      </div>
     <% end %>
   </form>
 </div>
 
-
-<% if @selected_posts.present? %>
-  <% @selected_posts.each do |post| %>
-    <div class="practice">
-      <h2><%= post.title %></h2>
-      <p><%= post.body %></p>
-    </div>
-  <% end %>
-<% else %>
-  <p>選択された練習はありません</p>
-<% end %>
 
 <div class="text-center">
   <%= link_to "ホーム画面に戻る", tabletennis_index_path, class: "btn btn-link" %>
