@@ -15,6 +15,7 @@ class TabletennisController < ApplicationController
         @total_time_all = Tabletennistime.total_time_all
         @total_time_month = Tabletennistime.total_time_month
         @total_time_week = Tabletennistime.total_time_week
+        @selected_posts = Post.where(add: 1)
     end
 
     def create
@@ -25,7 +26,14 @@ class TabletennisController < ApplicationController
           flash[:alert] = "保存できませんでした"
           render :new
         end
-      end
+
+
+
+end
+
+
+
+
     
     private
     def tabletennistime_params

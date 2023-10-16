@@ -64,7 +64,7 @@ class PostsController < ApplicationController
     post.update(add: 1)
  end
 
- def delete
+ def remove
   @posts = Post.where(id: params[:selected_posts])
   @posts.each do |post|
     post.update(add: 0)

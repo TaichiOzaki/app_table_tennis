@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   get 'posts/edit/:id', to: 'posts#edit', as: 'edit_post'
   post 'posts/edit/:id', to: 'posts#update', as: 'update_post'
   delete 'posts/destroy/:id', to: 'posts#destroy', as: 'destroy_post'
-  patch '/', to: 'posts#delete', as: 'delete_post'
+  patch '/', to: 'posts#remove', as: 'remove_post'
+  
 
 
 
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
   get 'tabletennis/index', to: 'tabletennis#index', as: 'tabletennis_index'
   post 'tabletennis/index', to: 'tabletennis#create', as: 'tabletennis_create'
 
+
   # TimeController
   get 'time/index', to: 'time#index', as: 'time_index'
   post 'time/index', to: 'time#create', as: 'time_create'
@@ -45,7 +47,10 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
       patch 'add', to: 'posts#add', as: 'add'
+      
     end
   end
 
 end
+
+
