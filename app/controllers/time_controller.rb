@@ -14,7 +14,8 @@ class TimeController < ApplicationController
           redirect_to time_index_path, alert: '時間が見つかりません。'
         end
     end
-      
-
+    
+    
+    
 
 end

@@ -64,12 +64,16 @@ class PostsController < ApplicationController
     post.update(add: 1)
  end
 
- def remove
+ def toggle
   @post = Post.find(params[:id])
   @post.update(add: 0)
-  redirect_to index_post_path #適切なパスにリダイレクト
+  redirect_to index_post_path 
  end
 
+
+ def home
+  redirect_to tabletennis_index_path
+ end
  
 
 
@@ -78,9 +82,7 @@ class PostsController < ApplicationController
 end
 
   
-  def home
-    redirect_to tabletennis_index_path
-  end
+  
 
 
      

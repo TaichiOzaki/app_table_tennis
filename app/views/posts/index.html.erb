@@ -13,7 +13,7 @@
         <div class="post-title-container" style="display: flex; justify-content: space-between;">
           <h2><%= post.title %></h2>
           <%= post.add %>
-          <%= link_to '削除', remove_post_path(post), method: :patch, class: 'delete-button' %>
+          <%= link_to '削除', toggle_post_path(post), method: :patch, class: 'delete-button' %>
           
         </div>
       </div>

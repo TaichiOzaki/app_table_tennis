@@ -1,4 +1,4 @@
 class PracticeContent < ApplicationRecord
-    belongs_to :post
-    belongs_to :tabletennistime
+    has_many :post
+    has_one :tabletennistime
 end

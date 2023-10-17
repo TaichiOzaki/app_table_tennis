@@ -22,10 +22,10 @@ class Tabletennistime < ApplicationRecord
         minutes = total_minutes % 60
         "#{hours}時間#{minutes}分"
     end
+    
 
 
 
 
-
-    has_many :practice_contents
+   
 end
