@@ -65,12 +65,16 @@ class PostsController < ApplicationController
  end
 
  def remove
-  @posts = Post.where(id: params[:selected_posts])
-  @posts.each do |post|
-    post.update(add: 0)
+  @post = Post.find(params[:id])
+  @post.update(add: 0)
+  redirect_to index_post_path #適切なパスにリダイレクト
  end
-end
+
  
+
+
+
+
 end
 
   
