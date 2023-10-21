@@ -23,7 +23,7 @@ class Tabletennistime < ApplicationRecord
         "#{hours}時間#{minutes}分"
     end
     
-
+   
 
 
 

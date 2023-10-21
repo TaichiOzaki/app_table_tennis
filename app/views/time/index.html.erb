@@ -9,10 +9,12 @@
 <h1>記録された時間一覧</h1>
 
 
+
+
+
 <div class="container">
   <% @tabletennistimes.each do |time| %>
     <div class="time-info">
-    <%= time.id %>
       <div class="time-value"><%= time.date %></div>
       <div class="time-value"><%= time.hour %>時間</div>
       <div class="time-value"><%= time.minutes %>分</div>
@@ -21,6 +23,7 @@
     </div>
   <% end %>
 </div>
+
 
 <div class="text-center">
 <%= link_to "ホーム画面に戻る", tabletennis_index_path, class: "btn btn-link" %>

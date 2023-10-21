@@ -71,6 +71,10 @@ class PostsController < ApplicationController
  end
 
 
+
+ 
+
+
  def home
   redirect_to tabletennis_index_path
  end

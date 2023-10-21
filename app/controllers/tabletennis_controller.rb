@@ -20,7 +20,12 @@ class TabletennisController < ApplicationController
 
     def create
         @tabletennistime = Tabletennistime.new(tabletennistime_params)
+        
         if @tabletennistime.save
+          # 練習時間が保存されたら、選択されたポストを関連付ける
+          selected_post_ids = params[:selected_posts] # 選択されたポストの ID の配列
+          @tabletennistime.posts << Post.where(id: selected_post_ids)
+        
           redirect_to time_index_path, notice: "記録が保存されました"
         else
           flash[:alert] = "保存できませんでした"
