@@ -55,9 +55,10 @@
   <% if @selected_posts.present? %>
     <% @selected_posts.each do |post| %>
       <div class="practice">
-        <div class="post-title-container" style="display: flex; justify-content: space-between;">
-          <h2><%= post.title %></h2>
-          <%= post.add %>
+        <div class="post-title-container" style="display: flex; justify-content: space-between;" >
+          <a href="<%= edit_post_path(post) %>">
+            <h2><%= post.title %></h2>
+          </a>
           <%= link_to '削除', toggle_post_path(post), method: :patch, class: 'delete-button' %>
         </div>
       </div>

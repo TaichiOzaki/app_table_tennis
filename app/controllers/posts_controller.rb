@@ -27,7 +27,7 @@ class PostsController < ApplicationController
  
  def create
   @post = Post.new(post_params)
-  
+  @post.url = params[:post][:url]
   if params[:post][:image]
    @post.image.attach(params[:post][:image])
   end
@@ -50,6 +50,9 @@ class PostsController < ApplicationController
    if params[:post][:image]
      @post.image.attach(params[:post][:image])
    end
+
+   @post.url = params[:post][:url]
+   
    if @post.update(post_params)
     redirect_to index_post_path, notice: '更新しました'
    else

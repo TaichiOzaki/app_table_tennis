@@ -10,8 +10,10 @@
   <% if @selected_posts.present? %>
     <% @selected_posts.each do |post| %>
       <div class="practice">
-        <div class="post-title-container" style="display: flex; justify-content: space-between;">
-          <h2><%= post.title %></h2>
+        <div class="post-title-container" style="display: flex; justify-content: space-between;" >
+          <a href="<%= edit_post_path(post) %>">
+            <h2><%= post.title %></h2>
+          </a>
           <%= link_to '削除', toggle_post_path(post), method: :patch, class: 'delete-button' %>
         </div>
       </div>
@@ -34,10 +36,13 @@
     <% @posts.each do |post| %>
         <div class="practice-content">
           <input type="checkbox" name="selected_posts[]" value="<%= post.id %>">
-          <a class="post" href="<%= edit_post_path(post) %>">
-          <%= post.add %>
-              <h2 class="title"><%= post.title %></h2>
-          </a>
+          <div class="wrap">
+            <a class="post" href="<%= edit_post_path(post) %>">
+                <h2 class="title"><%= post.title %></h2>
+                <h5 class="title"><%= post.body %></h5>
+                <a href="<%= post.url %>" target="_blank" class="form-control"><%= post.url %></a>
+            </a>
+          </div>
         </div>
     <% end %>
   </form>
@@ -47,9 +52,6 @@
 <div class="text-center">
   <%= link_to "ホーム画面に戻る", tabletennis_index_path, class: "btn btn-link" %>
 </div>
-
-
-
 
 
 

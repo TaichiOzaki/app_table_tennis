@@ -201,6 +201,7 @@
   text-decoration: none;
   display: flex;
   align-items: center;
+
 }
 
 .title {
@@ -218,6 +219,11 @@ input[type="checkbox"] {
   width: 200px; 
 }
 
+
+.wrap {
+  display:flex;
+  flex-flow: column;
+}
 
 
 
